@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <link rel="icon" href="LmbMapIcon.png">
+        <title>LMB MAP</title>
+    </head>
+    <body>
+        <section id="header" class="header">
+            <div class="container">
+                <div style="display:none;" class="reduit" id="reduit">
+                    <div class="content">
+                        <img class="icon" style="filter:invert(1);" src="ImgNewDestination.png" onclick="hideMap();">
+                        <img class="icon" style="filter:invert(1);" src="menu.png" onclick="hideMap();">
+                    </div>
+                </div>
+                <div style="display:flex;" class="agrandit" id="agrandit">
+                    <img class="icon" style="filter:invert(1);" src="cross.png"  onclick="displayMap();">
+                    <div class="content">
+                        <div>
+                            <label for="destination">Votre position :</label>
+                            <input id="position" name="position" type="text" label="Position:" value="0">
+                        </div>
+                        <div>
+                            <label for="destination">Destination :</label>
+                            <input id="destination" name="destination" type="text" label="Destination:">
+                        </div>
+                        <div>
+                            <input onclick="displayMap(); getValue();" class="button" type="button" name="confirm" value="Confirmer">
+                        </div>
+                        <div class="aide">
+                            <div style="display: none;" class="helpcontent" id="helpcontent">
+                                <img src="cross.png" style="filter: invert(1);" onclick="hideHelp();">
+                                <p><u>Dans le champ "Votre position":</u> <br/>Veuillez entrer le num&eacute;ro d'une salle &agrave; proximit&eacute; de votre position actuelle (0 pour le hall du lycée).</p><br/>
+                                <p><u>Dans le champ "Destination":</u> <br/>Veuillez entrer le num&eacute;ro de la salle o&ugrave; vous souhaitez vous rendre.</p>
+                            </div>
+                            <a style="display: block;" id="help" onclick="displayHelp();"><u>Aide</u></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="main" class="main" style="display: none;">
+            <div class="container">
+                <div class="map-container">
+                    <img id = "Etage0" class="Etage0 map" style="display: flex;" src="Etage0_LMB.png">
+                    <img id = "Etage1" class="Etage1 map" style="display: none;" src="Etage1_LMB.png">
+                    <img id = "Etage2" class="Etage2 map" style="display: none;" src="Etage2_LMB.png">
+                    <img id = "Etage3" class="Etage3 map" style="display: none;" src="Etage3_LMB.png">
+                    <div class="flechecontainer">
+                        <div class="content">
+                            <p id="num-etage" class="num-etage">Rez de chauss&eacute;e</p>
+                            <!--Partie Aurélie-->
+                            <!--Il sagit de toutes les fleches et noeuds présent sur la carte-->
+                            <!--==============================0e etage===============================-->
+							<img id="a1gauche" class="fleche A1->A2" style="display:none;top: 340px;left: 256px;transform:rotate(300deg);" src="fleche.png">
+							<img id="a1droite" class="fleche A1->B1" style="filter: hue-rotate(270deg); display:none;top: 330px;left: 280px;transform:rotate(220deg);" src="fleche.png">
+                            <img id="a1haut" class="fleche A1->A6" style="display:none;top: 300px;left: 260px;transform:rotate(75deg);" src="fleche.png">
+                            <img id="a1bas" class="fleche A1->A4" style="display:none;top: 345px;left: 275px;transform:rotate(250deg);" src="fleche.png">
+                            <img class="noeud" id="a1" style="display:none;top: 335px;left: 275px" src="noeud.png">
+							
+							<img id="a2droite" class="fleche A2->A4" style="display:none;top: 385px;left: 260px;transform:rotate(200deg);" src="fleche.png">
+							<img id="a2gauche" class="fleche A2->B2" style="filter: hue-rotate(270deg); display:none;top: 384px;left: 240px;transform:rotate(270deg);" src="fleche.png">
+                            <img id="a2haut" class="fleche A2->A1" style="display:none;top: 355px;left: 248px;transform:rotate(118deg);" src="fleche.png">
+                            <img id="a2bas" class="fleche A2->A3" style="display:none;top: 398px;left: 250px;transform:rotate(250deg);" src="fleche.png">
+                            <img class="noeud" id="a2" style="display:none;top: 380px;left: 250px" src="noeud.png">
+							
+							<img id="a3droite" class="fleche A3->A2" style="display:none;top: 482px;left: 245px;transform:rotate(180deg);" src="fleche.png">
+                            <img id="a3haut" class="fleche A3->B4" style="filter: hue-rotate(270deg); display:none;top: 460px;left: 221px;transform:rotate(90deg);" src="fleche.png">
+                            <img class="noeud" id="a3" style="display:none;top: 490px;left: 232px" src="noeud.png">
+							
+							<img id="a4droite" class="fleche A4->A5" style="display:none;top: 470px;left: 380px;transform:rotate(180deg);" src="fleche.png">
+                            <img id="a4haut" class="fleche A4->A1 A4->A2" style="display:none;top: 445px;left: 345px;transform:rotate(57deg);" src="fleche.png">
+                            <img class="noeud" id="a4" style="display:none;top: 480px;left: 370px" src="noeud.png">
+							
+							<img id="a5gauche" class="fleche A5->A4" style="display:none;top: 465px;left: 460px;transform:rotate(0deg);" src="fleche.png">
+                            <img class="noeud" id="a5" style="display:none;top: 475px;left: 490px" src="noeud.png">
+							
+							<img id="a6haut" class="fleche A6->B6" style="filter: hue-rotate(270deg); display:none;top: 185px;left: 195px;transform:rotate(65deg);" src="fleche.png">
+                            <img id="a6bas" class="fleche A6->A1" style="display:none;top: 225px;left: 218px;transform:rotate(240deg);" src="fleche.png">
+                            <img id="a6droite" class="fleche A6->A8" style="display:none;top: 190px;left: 210px;transform:rotate(88deg);" src="fleche.png">
+                            <img class="noeud" id="a6" style="display:none;top: 215px;left: 219px" src="noeud.png">
+							
+							<img id="a7gauche" class="fleche A7->A8" style="display:none;top: 107px;left: 323px;transform:rotate(330deg);" src="fleche.png">
+							<img id="a7droite" class="fleche" style="display:none;top: 84px;left: 364px;transform:rotate(150deg);" src="fleche.png">
+                            <img class="noeud" id="a7" style="display:none;top: 107px;left: 353px" src="noeud.png">
+							
+                            <img id="a8haut" class="fleche" style="display:none;top: 146px;left: 198px;transform:rotate(60deg);" src="fleche.png">
+							<img id="a8bas" class="fleche A8->A6" style="display:none;top: 175px;left: 210px;transform:rotate(273deg);" src="fleche.png">
+							<img id="a8droite" class="fleche A8->A7" style="display:none;top: 160px;left: 230px;transform:rotate(170deg);" src="fleche.png">
+                            <img class="noeud" id="a8" style="display:none;top: 170px;left: 220px" src="noeud.png">	
+                            <!--===============================================================================-->
+                            <!--==================================1e etage=====================================-->
+							<img class="fleche B1->B2" id="b1gauche" style="display:none;top: 446px;left: 324px;transform:rotate(0deg);" src="fleche.png">
+                            <img class="fleche B1->A1" id="b1haut" style="filter: hue-rotate(270deg); display:none;top: 425px;left: 328px;transform:rotate(55deg);" src="fleche.png">
+                            <img class="fleche B1->B3" id="b1bas" style="display:none;top: 465px;left: 355px;transform:rotate(238deg);" src="fleche.png">
+                            <img class="noeud" id="b1" style="display:none;top: 455px;left: 355px" src="noeud.png">
+							
+                            <img class="fleche B2->A2 B2->C1" id="b2gauche" style="filter: hue-rotate(270deg); display:none;top: 456px;left: 255px;transform:rotate(0deg);" src="fleche.png">
+                            <img class="fleche B2->B1" id="b2droite" style="display:none;top: 456px;left: 300px;transform:rotate(180deg);" src="fleche.png">
+                            <img class="fleche B2->B6" id="b2haut" style="display:none;top: 430px;left: 263px;transform:rotate(55deg);" src="fleche.png">
+                            <img class="fleche B2->B4" id="b2bas" style="display:none;top: 480px;left: 276px;transform:rotate(270deg);" src="fleche.png">
+                            <img class="noeud" id="b2" style="display:none;top: 465px;left: 286px" src="noeud.png">
+
+                            <img class="fleche B3->B4" id="b3gauche" style="display:none;top: 523px;left: 369px;transform:rotate(350deg);" src="fleche.png">
+                            <img class="fleche B3->B5" id="b3droite" style="display:none;top: 517px;left: 419px;transform:rotate(175deg);" src="fleche.png">
+                            <img class="fleche B3->B1" id="b3haut" style="display:none;top: 495px;left: 380px;transform:rotate(55deg);" src="fleche.png">
+                            <img class="noeud" id="b3" style="display:none;top: 529px;left: 404px" src="noeud.png">
+
+                            <img class="fleche B4->A3 B4->C2" id="b4haut" style="filter: hue-rotate(270deg); display:none;top: 510px;left: 237px;transform:rotate(90deg);" src="fleche.png">
+                            <img class="fleche B4->B3 B4->B2" id="b4droite" style="display:none;top: 528px;left: 264px;transform:rotate(180deg);" src="fleche.png">
+                            <img class="fleche" id="b4gauche" style="display:none;top: 528px;left: 209px;transform:rotate(0deg);" src="fleche.png">
+                            <img class="noeud" id="b4" style="display:none;top: 538px;left: 247px" src="noeud.png">
+
+                            <img class="fleche B5->C3" id="b5haut" style="filter: hue-rotate(270deg); display:none;top: 498px;left: 550px;transform:rotate(90deg);" src="fleche.png">
+                            <img class="fleche" id="b5droite" style="display:none;top: 518px;left: 577px;transform:rotate(180deg);" src="fleche.png">
+                            <img class="fleche B5->B3" id="b5gauche" style="display:none;top: 518px;left: 522px;transform:rotate(0deg);" src="fleche.png">
+                            <img class="noeud" id="b5" style="display:none;top: 528px;left: 560px" src="noeud.png">
+							
+							<img class="fleche B6->A6 B6->C5" id="b6gauche" style="filter: hue-rotate(270deg); display:none;top: 240px;left: 209px;transform:rotate(350deg);" src="fleche.png">
+                            <img class="fleche B6->B7" id="b6haut" style="display:none;top: 224px;left: 225px;transform:rotate(60deg);" src="fleche.png">
+                            <img class="fleche B6->B2" id="b6bas" style="display:none;top: 260px;left: 237px;transform:rotate(259deg);" src="fleche.png">
+                            <img class="noeud" id="b6" style="display:none;top: 245px;left: 240px" src="noeud.png">
+							
+							<img class="fleche" id="b7haut" style="display:none;top: 174px;left: 198px;transform:rotate(60deg);" src="fleche.png">
+                            <img class="fleche B7->B8" id="b7droite" style="display:none;top: 188px;left: 227px;transform:rotate(150deg);" src="fleche.png">
+							<img class="fleche" id="b7gauche" style="display:none;top: 204px;left: 192px;transform:rotate(345deg);" src="fleche.png">
+                            <img class="fleche B7->B6" id="b7bas" style="display:none;top: 207px;left: 215px;transform:rotate(240deg);" src="fleche.png">
+                            <img class="noeud" id="b7" style="display:none;top: 205px;left: 220px" src="noeud.png">
+														
+                            <img class="fleche" id="b8droite" style="display:none;top: 117px;left: 347px;transform:rotate(150deg);" src="fleche.png">
+							<img class="fleche B8->B7" id="b8gauche" style="display:none;top: 139px;left: 310px;transform:rotate(330deg);" src="fleche.png">
+                            <img class="fleche B8->C6" id="b8bas" style="filter: hue-rotate(270deg); display:none;top: 145px;left: 337px;transform:rotate(240deg);" src="fleche.png">
+                            <img class="noeud" id="b8" style="display:none;top: 138px;left: 338px" src="noeud.png">
+                            <!--===============================================================================-->
+                            <!--==================================2e etage=====================================-->
+                            <img class="fleche C1->C8 C1->C2" id="c1droite" style="display:none;top: 460px;left: 260px;transform:rotate(180deg);" src="fleche.png">
+							<img class="fleche C1->C7" id="c1haut" style="display:none;top: 440px;left: 240px;transform:rotate(90deg);" src="fleche.png">
+                            <img class="fleche C1->B2" id="c1bas" style="filter: hue-rotate(270deg); display:none;top: 475px;left: 240px;transform:rotate(270deg);" src="fleche.png">
+                            <img class="noeud" id="c1" style="display:none;top: 470px;left: 250px" src="noeud.png">
+							
+                            <img class="fleche" id="c2gauche" style="display:none;top: 538px;left: 215px;transform:rotate(0deg);" src="fleche.png">
+							<img class="fleche C2->C9 C2->C1" id="c2droite" style="display:none;top: 538px;left: 265px;transform:rotate(180deg);" src="fleche.png">
+							<img class="fleche C2->B4 C2->D2" id="c2haut" style="filter: hue-rotate(270deg); display:none;top: 515px;left: 236px;transform:rotate(90deg);" src="fleche.png">
+                            <img class="noeud" id="c2" style="display:none;top: 546px;left: 246px" src="noeud.png">
+							
+							<img class="fleche C3->C9" id="c3gauche" style="display:none;top: 527px;left: 530px;transform:rotate(0deg);" src="fleche.png">
+                            <img class="fleche" id="c3droite" style="display:none;top: 527px;left: 580px;transform:rotate(180deg);" src="fleche.png">
+							<img class="fleche C3->B5 C3->D3" id="c3haut" style="filter: hue-rotate(270deg); display:none;top: 505px;left: 555px;transform:rotate(90deg);" src="fleche.png">
+                            <img class="noeud" id="c3" style="display:none;top: 535px;left: 565px" src="noeud.png">
+							
+							<img class="fleche C5->B6" id="c5gauche" style="filter: hue-rotate(270deg); display:none;top: 243px;left: 216px;transform:rotate(350deg);" src="fleche.png">
+							<img class="fleche C5->C10" id="c5haut" style="display:none;top: 231px;left: 225px;transform:rotate(60deg);" src="fleche.png">
+                            <img class="fleche C5->C7" id="c5bas" style="display:none;top: 260px;left: 243px;transform:rotate(240deg);" src="fleche.png">
+                            <img class="noeud" id="c5" style="display:none;top: 250px;left: 240px" src="noeud.png">
+							
+							<img class="fleche" id="c6droite" style="display:none;top: 122px;left: 350px;transform:rotate(150deg);" src="fleche.png">
+							<img class="fleche C6->C10" id="c6gauche" style="display:none;top: 145px;left: 310px;transform:rotate(330deg);" src="fleche.png">
+                            <img class="fleche C6->B8" id="c6bas" style="filter: hue-rotate(270deg); display:none;top: 150px;left: 336px;transform:rotate(240deg);" src="fleche.png">
+                            <img class="noeud" id="c6" style="display:none;top: 145px;left: 338px" src="noeud.png">
+
+                            <img class="fleche C7->C1" id="c7gauche" style="display:none;top: 325px;left: 255px;transform:rotate(310deg);" src="fleche.png">
+							<img class="fleche C7->C5" id="c7haut" style="display:none;top: 310px;left: 265px;transform:rotate(60deg);" src="fleche.png">
+                            <img class="fleche C7->C8" id="c7bas" style="display:none;top: 330px;left: 280px;transform:rotate(230deg);" src="fleche.png">
+                            <img class="noeud" id="c7" style="display:none;top: 330px;left: 280px" src="noeud.png">
+							
+							<img class="fleche C8->C1" id="c8gauche" style="display:none;top: 460px;left: 325px;transform:rotate(0deg);" src="fleche.png">
+							<img class="fleche C8->C7" id="c8haut" style="display:none;top: 440px;left: 340px;transform:rotate(83deg);" src="fleche.png">
+                            <img class="fleche C8->C9" id="c8bas" style="display:none;top: 475px;left: 350px;transform:rotate(230deg);" src="fleche.png">
+                            <img class="noeud" id="c8" style="display:none;top: 470px;left: 350px" src="noeud.png">
+							
+							<img class="fleche  C9->C3" id="c9droite" style="display:none;top: 525px;left: 400px;transform:rotate(180deg);" src="fleche.png">
+							<img class="fleche  C9->C2" id="c9gauche" style="display:none;top: 530px;left: 370px;transform:rotate(340deg);" src="fleche.png">
+                            <img class="fleche  C9->C8" id="c9haut" style="display:none;top: 500px;left: 375px;transform:rotate(80deg);" src="fleche.png">
+                            <img class="noeud" id="c9" style="display:none;top: 530px;left: 390px" src="noeud.png">
+							
+							<img class="fleche" id="c10haut" style="display:none;top: 180px;left: 196px;transform:rotate(61deg);" src="fleche.png">
+							<img class="fleche  C10->C6" id="c10droite" style="display:none;top: 193px;left: 230px;transform:rotate(150deg);" src="fleche.png">
+							<img class="fleche" id="c10gauche" style="display:none;top: 213px;left: 183px;transform:rotate(348deg);" src="fleche.png">
+                            <img class="fleche  C10->C5" id="c10bas" style="display:none;top: 213px;left: 213px;transform:rotate(235deg);" src="fleche.png">
+                            <img class="noeud" id="c10" style="display:none;top: 215px;left: 218px" src="noeud.png">
+                            <!--===============================================================================-->
+                            <!--==================================3e etage=====================================-->
+                            <!--==Il faut changer le display:none en display:flex pour afficher les marqueurs==-->
+                            <img class="fleche D1->D2" id="d1gauche" style="display:none;top: 533px;left: 380px;transform:rotate(350deg);" src="fleche.png">
+                            <img class="fleche D1->D3" id="d1droite" style="display:none;top: 523px;left: 430px;transform:rotate(175deg);" src="fleche.png">
+                            <img class="noeud" id="d1" style="display:none;top:538px;left:415px" src="noeud.png">
+
+                            <img class="fleche D2->C2" id="d2haut" style="filter: hue-rotate(270deg); display:none;top: 513px;left: 248px;transform:rotate(90deg);" src="fleche.png">
+                            <img class="fleche D2->D1" id="d2droite" style="display:none;top: 533px;left: 275px;transform:rotate(180deg);" src="fleche.png">
+                            <img class="fleche" id="d2gauche" style="display:none;top: 533px;left: 220px;transform:rotate(0deg);" src="fleche.png">
+                            <img class="noeud" id="d2" style="display:none;top:543px;left:258px" src="noeud.png">
+
+                            <img class="fleche D3->C3" id="d3haut" style="filter: hue-rotate(270deg); display:none;top: 503px;left: 555px;transform:rotate(90deg);" src="fleche.png">
+                            <img class="fleche" id="d3droite" style="display:none;top: 523px;left: 582px;transform:rotate(180deg);" src="fleche.png">
+                            <img class="fleche D3->D1" id="d3gauche" style="display:none;top: 523px;left: 527px;transform:rotate(0deg);" src="fleche.png">
+                            <img class="noeud" id="d3" style="display:none;top:533px;left:565px" src="noeud.png">
+                            <!--===============================================================================-->
+                            <!--Fin Partie Aurélie-->
+                        </div>
+                    </div>
+                </div>
+                <div class="next-etage">
+                    <input onclick="setPrevEtage()" class="prev-etage-button" type="button" value="Etage precedent">
+                    <input onclick="setNextEtage()" class="next-etage-button" type="button" value="Etage suivant">
+                </div>
+                <div class="nav-help">
+                    <h2>L&eacute;gende :</h2>
+                    <div class="nav-legende-content">
+                        <p><img class="noeudlegende" src="noeud.png">Noeud d'intersection</p>
+                        <p><img class="flechelegende" src="fleche.png">Direction</p>
+                        <p><img class="flechelegende" src="fleche.png" style="filter:hue-rotate(270deg);">Escalier</p>
+                        <p><img class="flechelegende" src="fleche.png" style="filter:hue-rotate(0deg);">Emplacement de la salle</p>
+                    </div>
+                </div>
+                <div class="footer">
+                    <div class="footer-container">
+                        <p><a>LMBMAP</a></p>
+                        <p><a href="http://www.lyc-bloch-bischheim.ac-strasbourg.fr/wordpress/">Site</a></p>
+                    </div>  
+                </div>
+            </div>
+        </section>
+        <script>
+        // Partie Adam
+        var NoeudToEnable = [];
+        var OrientationArrivee = "";
+
+        function hideMap(){
+            /* Fonction qui affiche la demande de position et de destination. */
+            var reduit = document.getElementById("reduit");
+            var agrandit = document.getElementById("agrandit");
+            document.getElementById("main").style.display = "none";
+            reduit.style.display = "none";
+            agrandit.style.display = "flex";
+        }
+        function displayMap(){
+            /* Fonction qui affiche la page principale de l'app (carte + boutons et légendes) 
+               et ferme la demande de position et de destination. */
+            var reduit = document.getElementById("reduit");
+            var agrandit = document.getElementById("agrandit");
+            document.getElementById("main").style.display = "block";
+            reduit.style.display = "block";
+            agrandit.style.display = "none";
+        }
+
+        function displayHelp(){
+        /* Fonctionn qui affiche l'aide */
+            var help = document.getElementById("help");
+            var helpcontent = document.getElementById("helpcontent");
+            help.style.display = "none";
+            helpcontent.style.display = "flex";
+        }
+        function hideHelp(){
+            /* Fonction qui ferme l'aide */
+            var help = document.getElementById("help");
+            var helpcontent = document.getElementById("helpcontent");
+            helpcontent.style.display = "none";
+            help.style.display = "block";
+        }
+
+        function getValue(){
+            /* Fonction qui prend les valeurs entrés dans les champs position et destination */
+            var Depart = parseInt(document.getElementById("position").value,10);
+            var Arrivee = parseInt(document.getElementById("destination").value,10);
+            var NoeudDepEtArr = getNoeuds(Depart,Arrivee);
+            if (NoeudDepEtArr != 0){
+                var NoeudDepart = NoeudDepEtArr[0][1];
+                var NoeudArrivee = NoeudDepEtArr[1][1];
+                setEtage(0);
+                if(Depart>=100){
+                    setEtage(1);
+                    if(Depart>=200){
+                        setEtage(2);
+                        if(Depart>=300){
+                            setEtage(3);
+                        }
+                    }
+                }
+                NoeudToEnable = getCheminMin(Graphe, NoeudDepart, NoeudArrivee);
+                displayNoeud();
+            }else{
+                hideMap();
+            }
+        }
+        function getEtage(){
+            /* Fonction qui renvoie l'étage actuel affiché */
+            if(document.getElementById("Etage0").style.display == "flex"){
+                return 'A';
+            }else if(document.getElementById("Etage1").style.display == "flex"){
+                return 'B';
+            }else if(document.getElementById("Etage2").style.display == "flex"){
+                return 'C';
+            }else{
+                return 'D';
+            }
+        }
+        // Fin Partie Adam
+        
+        // Partie Tuna
+        /* Liste de dictionnaire avec le nom des noeuds et les salles voisines de chaqun d'eux */
+        var Voisin = [  
+        {
+            "nom":"A1",
+            "voisins":{
+                "droite":[],
+                "gauche":[],
+                "haut":[0],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"A2",
+            "voisins":{
+                "droite":[],
+                "gauche":[],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"A3",
+            "voisins":{
+                "droite":[1,2,3,6,5,6,7],
+                "gauche":[],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"A4",
+            "voisins":{
+                "droite":[],
+                "gauche":[],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"A5",
+            "voisins":{
+                "droite":[],
+                "gauche":[50,51,52,8],
+                "haut":[],
+                "bas":[]
+    
+            }
+    
+        },
+        {
+            "nom":"A6",
+            "voisins":{
+                "droite":[],
+                "gauche":[],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"A7",
+            "voisins":{
+                "droite":[12,13,14,15],
+                "gauche":[11,16],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"A8",
+            "voisins":{
+                "droite":[],
+                "gauche":[],
+                "haut":[10],
+                "bas":[]
+            }
+        },
+        {
+            "nom":"B1",
+            "voisins":{ 
+                "droite":[],
+                "gauche":[],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"B2",
+            "voisins":{
+                "droite":[],
+                "gauche":[],
+                "haut":[122,123],
+                "bas":[]
+    
+            }
+    
+        },
+        {
+            "nom":"B3",
+            "voisins":{
+                "droite":[150,110],
+                "gauche":[121,111,120,112],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"B4",
+            "voisins":{
+                "droite":[109,151],
+                "gauche":[101,109,108,102,107,106,103,105,104],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"B5",
+            "voisins":{
+                "droite":[118,114,115,117,116],
+                "gauche":[113,119],
+                "haut":[],
+                "bas":[]
+    
+            }
+    
+        },
+        {
+            "nom":"B6",
+            "voisins":{
+                "droite":[],
+                "gauche":[],
+                "haut":[],
+                "bas":[153,152,154]            
+            }
+    
+        },
+        {
+            "nom":"B7",
+            "voisins":{
+                "droite":[135,127],
+                "gauche":[125,126],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"B8",
+            "voisins":{
+                "droite":[129,133,132,131,130],
+                "gauche":[134,128],
+                "haut":[],
+                "bas":[]
+            }
+        },
+        {
+            "nom":"C1",
+            "voisins":{
+                "droite":[],
+                "gauche":[],
+                "haut":[215,216],
+                "bas":[]
+            }
+        },
+        {
+            "nom":"C2",
+            "voisins":{
+                "droite":[201],
+                "gauche":[202,203,204,206,205],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"C3",
+            "voisins":{
+                "droite":[210,212,211],
+                "gauche":[209,212],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"C5",
+            "voisins":{
+                "droite":[],
+                "gauche":[217],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"C6",
+            "voisins":{
+                "droite":[224],
+                "gauche":[229,228,225,227,226],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"C7",
+            "voisins":{
+                "droite":[],
+                "gauche":[],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"C8",
+            "voisins":{
+                "droite":[],
+                "gauche":[],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"C9",
+            "voisins":{
+                "droite":[208,214],
+                "gauche":[207],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"C10",
+            "voisins":{
+                "droite":[230,223],
+                "gauche":[222,220,221],
+                "haut":[],
+                "bas":[]
+            }
+        },
+        {
+            "nom":"D1",
+            "voisins":{
+                "droite":[],
+                "gauche":[302,301],
+                "haut":[],
+                "bas":[]      
+            }
+    
+        },
+        {
+            "nom":"D2",
+            "voisins":{
+                "droite":[304],
+                "gauche":[303],
+                "haut":[],
+                "bas":[]
+            }
+    
+        },
+        {
+            "nom":"D3",
+            "voisins":{
+                "droite":[306,307],
+                "gauche":[305],
+                "haut":[],
+                "bas":[]
+            }
+        }
+     
+     
+    ]
+        var liste = []
+        
+        
+        function Localiser(){
+            /* Fonction qui retourne une liste avec le nom du noeud et les salles qui lui sont associés */
+            for (var Salles in Voisin) {
+                var Noeud = Voisin[Salles].nom
+                var Droite = Voisin[Salles].voisins.droite
+                var Gauche = Voisin[Salles].voisins.gauche
+                var Haut = Voisin[Salles].voisins.haut
+                var Bas = Voisin[Salles].voisins.bas
+                liste.push([Noeud, Droite, Gauche, Haut, Bas])
+            }
+            return liste
+        }
+        function Trouver(SalleRecherche) {
+            /* Fonction qui associe la salle recherché avec le noeud qui lui est associé */
+            for (var chemins in liste) {
+                for (var lieu = 1; lieu < 4; lieu++) {
+                    for (numero in liste[chemins][lieu]) {
+                        var Salle = liste[chemins][lieu][numero]
+                        if (Salle === SalleRecherche) {
+                            return [liste[chemins],lieu]
+                        }
+                    }
+                }
+            }
+            return 404
+        }
+        // Fin Partie Tuna
+        
+        // Suite Partie Adam
+        function getNoeuds(Depart, Arrivee){
+            /* Fonction qui vérifie la validité des informations entré dans les champs */
+            var Noeud = [];
+            var liste = Localiser();
+            if (isNaN(Depart)|| isNaN(Arrivee)){alert("Au moins un des deux champs est vide ou n'est pas un chiffre !"); return 0}
+            var LocalisationDepart = Trouver(Depart);
+            if (LocalisationDepart === 404){alert("La salle "+Depart+" n'existe pas !"); return 0}
+            var SalleDeDepart = LocalisationDepart[0][0];
+            var LocalisationArrivee = Trouver(Arrivee);
+            if (LocalisationArrivee === 404){alert("La salle "+Arrivee+" n'existe pas !"); return 0}
+            var SalleDarrive = LocalisationArrivee[0][0];
+
+            switch(LocalisationArrivee[1]){
+                case 1:
+                    OrientationArrivee = "droite";
+                    break;
+                case 2:
+                    OrientationArrivee = "gauche";
+                    break;
+                case 3:
+                    OrientationArrivee = "haut";
+                    break;
+                case 4:
+                    OrientationArrivee = "bas";
+                    break;
+            }
+            Noeud.push([Depart, SalleDeDepart], [Arrivee, SalleDarrive, OrientationArrivee]);
+
+            return Noeud;
+        }
+        /* Graphe pondéré avec les noeuds du lycée */
+        Graphe = {
+            'A1':{'A2':20, 'A4':50, 'A6':40, 'B1':6},
+            'A2':{'A1':20, 'A3':50, 'A4':45, 'B2':6},
+            'A3':{'A2':50, 'B4':6},
+            'A4':{'A1':50, 'A2':60, 'A5':68},
+            'A5':{'A4':68},
+            'A6':{'A1':40, 'A8':20, 'B6':6},
+            'A7':{'A8':62},
+            'A8':{'A6':20, 'A7':62},
+            'B1':{'A1':6,  'B2':25, 'B3':50},
+            'B2':{'B1':25, 'B4':45, 'B6':72, 'C1':6},
+            'B3':{'B1':50, 'B4':65, 'B5':50},
+            'B4':{'A3':6,  'B2':45, 'B3':65, 'C2':6},
+            'B5':{'B3':50, 'C3':6},
+            'B6':{'A6':6,  'B2':72, 'B7':16, 'C5':6},
+            'B7':{'B6':16, 'B8':51},
+            'B8':{'B7':51, 'C6':6},
+            'C1':{'C2':345, 'C7':55, 'C8':40},
+            'C2':{'B4':6,  'C1':45, 'C9':65, 'D2':6},
+            'C3':{'B5':6,  'C9':43, 'D3':6},
+            'C5':{'B6':6,  'C7':40, 'C10':13},
+            'C6':{'B8':6,  'C10':48},
+            'C7':{'C1':55, 'C5':40, 'C8':55},
+            'C8':{'C1':40, 'C7':55, 'C9':30},
+            'C9':{'C2':65, 'C3':43, 'C8':30},
+            'C10':{'C5':13, 'C6':48},
+            'D1':{'D2':50, 'D3':50},
+            'D2':{'C2':6,  'D1':50},
+            'D3':{'C3':6,  'D1':50},
+        }
+        
+        function getMini(listeSommets, marque){
+
+            var marquePlusPetite = 999;
+
+            for (var s of listeSommets){
+                if (marque[s] < marquePlusPetite){
+                    marquePlusPetite = marque[s];
+                    var sommetPlusPetit = s;
+                }
+            }
+            return sommetPlusPetit;
+        }
+              
+        function dijkstra(graphe, depart, arrivee){
+        /* Algorithme Djikstra qui renvoie le chemin le plus court entre deux noeuds */
+        
+            var marque = {};
+
+            for (sommet in graphe){
+
+                marque[sommet] = 999;
+                
+            }
+            marque[depart] = 0;
+            
+            var non_selectionnes = [];
+        
+            for (sommet in graphe){
+                
+                non_selectionnes.push(sommet);
+                
+            }
+            var pere = {};
+            pere[depart] = null;
+        
+            while (non_selectionnes.length > 0){
+
+                var s = getMini(non_selectionnes, marque);
+                if (s == arrivee){break;}
+                
+                non_selectionnes.splice(non_selectionnes.indexOf(s),1);
+        
+                var VoisinsAVisiter = [];
+
+                for(sommet in graphe[s]){
+
+                    if(non_selectionnes.indexOf(sommet) !== -1){
+
+                        VoisinsAVisiter.push(sommet);
+                    }
+                }
+
+                for (var sommet of VoisinsAVisiter){
+
+                    p = marque[s] + graphe[s][sommet];
+
+                    if (p < marque[sommet]){
+                        
+                        marque[sommet] = p;
+
+                        pere[sommet] = s;
+                    }
+                }
+            }
+            return [marque, pere];
+        }
+                
+        function getCheminMin(graphe, depart, arrivee=null){
+            
+            var distanceETpere = dijkstra(graphe, depart, arrivee);
+            var distance = distanceETpere[0];
+            var pere = distanceETpere[1];
+            if(arrivee != null){
+
+                var chemin = arrivee;
+                var sommet = arrivee;
+                while(pere[sommet] != null){
+                    chemin = pere[sommet] + ' ' + chemin;
+                    sommet = pere[sommet];
+                }
+                return chemin.split(' ');
+        
+            }else{
+        
+                var listecle = [];
+                for(var keys of Object.keys(distance)){
+                    listecle.push(keys);
+                }
+                
+                for (var i = 0 ; i < listecle.length ; i++){
+                    chemin = listecle[i];
+                    sommet = listecle[i];
+                    while(pere[sommet] != null){
+                        chemin = pere[sommet] + chemin;
+                        sommet = pere[sommet];
+                    }
+                }
+            }
+        }
+        
+        
+
+
+        function displayNoeud(){
+            /* Fonction qui affiche les noeuds et les fleches sur la carte */
+            LettreDebutNoeud = getEtage();
+            var noeuds = document.getElementsByClassName("noeud");
+            var fleches = document.getElementsByClassName("fleche");
+            
+
+            for (var i = 0; i<noeuds.length;i++){
+                noeuds[i].style.display = "none";
+            }
+
+            for (var i = 0; i<fleches.length;i++){
+                fleches[i].style.display = "none";
+            }
+
+            for (var i = 0; i<NoeudToEnable.length;i++){
+
+                if(LettreDebutNoeud == NoeudToEnable[i][0]){
+
+                    document.getElementById(NoeudToEnable[i].toLowerCase()).style.display = "block";
+                }else{
+
+                    document.getElementById(NoeudToEnable[i].toLowerCase()).style.display = "none";
+                }
+            }
+            for (var i = 0; i<NoeudToEnable.length-1;i++){
+
+                if(LettreDebutNoeud == NoeudToEnable[i][0]){
+
+                    document.getElementsByClassName(NoeudToEnable[i]+"->"+NoeudToEnable[i+1])[0].style.display = "block";      
+                }else{
+                    document.getElementsByClassName(NoeudToEnable[i]+"->"+NoeudToEnable[i+1])[0].style.display = "none";
+                }
+            }
+            
+            if(LettreDebutNoeud == NoeudToEnable[i][0]){
+
+                document.getElementById(NoeudToEnable[NoeudToEnable.length - 1].toLowerCase()+OrientationArrivee).style.display = "block";  
+                document.getElementById(NoeudToEnable[NoeudToEnable.length - 1].toLowerCase()+OrientationArrivee).style.filter = "hue-rotate(0deg)";  
+            }
+
+        }
+        
+        function setPrevEtage(){
+            /* Fonction qui affiche l'étage précédent */
+            var NumeroEtage = document.getElementById("num-etage")
+            ActualEtage = getEtage();
+            if(ActualEtage == 'A'){
+                document.getElementById("Etage0").style.display = "none";
+                document.getElementById("Etage3").style.display = "flex";
+                NumeroEtage.innerHTML = "3e &eacute;tage"
+                displayNoeud();
+            }else if(ActualEtage == 'B'){
+                document.getElementById("Etage1").style.display = "none";
+                document.getElementById("Etage0").style.display = "flex";
+                NumeroEtage.innerHTML = "Rez de chauss&eacute;e"
+                displayNoeud();
+            }else if(ActualEtage == 'C'){
+                document.getElementById("Etage2").style.display = "none";
+                document.getElementById("Etage1").style.display = "flex";
+                NumeroEtage.innerHTML = "1er &eacute;tage"
+                displayNoeud();
+            }else{
+                document.getElementById("Etage3").style.display = "none";
+                document.getElementById("Etage2").style.display = "flex";
+                NumeroEtage.innerHTML = "2e &eacute;tage"
+                displayNoeud();
+            }
+        }
+
+        function setNextEtage(){
+            /* Fonction qui affiche l'étage précédent */
+            var NumeroEtage = document.getElementById("num-etage")
+            ActualEtage = getEtage();
+            if(ActualEtage == 'A'){
+                document.getElementById("Etage0").style.display = "none";
+                document.getElementById("Etage1").style.display = "flex";
+                NumeroEtage.innerHTML = "1er &eacute;tage"
+                displayNoeud();
+            }else if(ActualEtage == 'B'){
+                document.getElementById("Etage1").style.display = "none";
+                document.getElementById("Etage2").style.display = "flex";
+                NumeroEtage.innerHTML = "2e &eacute;tage"
+                displayNoeud();
+            }else if(ActualEtage == 'C'){
+                document.getElementById("Etage2").style.display = "none";
+                document.getElementById("Etage3").style.display = "flex";
+                NumeroEtage.innerHTML = "3e &eacute;tage"
+                displayNoeud();
+            }else{
+                document.getElementById("Etage3").style.display = "none";
+                document.getElementById("Etage0").style.display = "flex";
+                NumeroEtage.innerHTML = "Rez de chauss&eacute;e"
+                displayNoeud();
+            }
+        }
+
+        function setEtage(Etage){
+            document.getElementById("Etage0").style.display = "none";
+            document.getElementById("Etage1").style.display = "none";
+            document.getElementById("Etage2").style.display = "none";
+            document.getElementById("Etage3").style.display = "none";
+            document.getElementById("Etage"+Etage).style.display = "flex";
+        }
+        // Fin Partie Adam
+    </script>
+    </body>
+</html>		

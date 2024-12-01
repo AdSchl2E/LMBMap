@@ -1,0 +1,282 @@
+[  
+    {
+        "nom":"A1",
+        "voisins":{
+            "droite":[],
+            "gauche":[],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"A2",
+        "voisins":{
+            "droite":[],
+            "gauche":[],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"A3",
+        "voisins":{
+            "droite":[1,2,3,6,5,6,7],
+            "gauche":[],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"A4",
+        "voisins":{
+            "droite":[],
+            "gauche":[],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"A5",
+        "voisins":{
+            "droite":[],
+            "gauche":[50,51,52,8],
+            "haut":[],
+            "bas":[]
+
+        }
+
+    },
+    {
+        "nom":"A6",
+        "voisins":{
+            "droite":[],
+            "gauche":[],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"A7",
+        "voisins":{
+            "droite":[12,13,14,15],
+            "gauche":[11,16],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"A8",
+        "voisins":{
+            "droite":[],
+            "gauche":[],
+            "haut":[10],
+            "bas":[]
+        }
+    },
+    {
+        "nom":"B1",
+        "voisins":{ 
+            "droite":[],
+            "gauche":[],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"B2",
+        "voisins":{
+            "droite":[],
+            "gauche":[],
+            "haut":[122,123],
+            "bas":[]
+
+        }
+
+    },
+    {
+        "nom":"B3",
+        "voisins":{
+            "droite":[150,110],
+            "gauche":[121,111,120,112],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"B4",
+        "voisins":{
+            "droite":[109,151],
+            "gauche":[101,109,108,102,107,106,103,105,104],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"B5",
+        "voisins":{
+            "droite":[118,114,115,117,116],
+            "gauche":[113,119],
+            "haut":[],
+            "bas":[]
+
+        }
+
+    },
+    {
+        "nom":"B6",
+        "voisins":{
+            "droite":[],
+            "gauche":[],
+            "haut":[],
+            "bas":[153,152,154]            
+        }
+
+    },
+    {
+        "nom":"B7",
+        "voisins":{
+            "droite":[135,127],
+            "gauche":[125,126],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"B8",
+        "voisins":{
+            "droite":[129,133,132,131,130],
+            "gauche":[134,128],
+            "haut":[],
+            "bas":[]
+        }
+    },
+    {
+        "nom":"C1",
+        "voisins":{
+            "droite":[],
+            "gauche":[],
+            "haut":[215,216],
+            "bas":[]
+        }
+    },
+    {
+        "nom":"C2",
+        "voisins":{
+            "droite":[201],
+            "gauche":[202,203,204,206,205],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"C3",
+        "voisins":{
+            "droite":[210,212,211],
+            "gauche":[209,212],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"C5",
+        "voisins":{
+            "droite":[],
+            "gauche":[217],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"C6",
+        "voisins":{
+            "droite":[224],
+            "gauche":[229,228,225,227,226],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"C7",
+        "voisins":{
+            "droite":[],
+            "gauche":[],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"C8",
+        "voisins":{
+            "droite":[],
+            "gauche":[],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"C9",
+        "voisins":{
+            "droite":[208,214],
+            "gauche":[207],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"C10",
+        "voisins":{
+            "droite":[230,223],
+            "gauche":[222,220,221],
+            "haut":[],
+            "bas":[]
+        }
+    },
+    {
+        "nom":"D1",
+        "voisins":{
+            "droite":[],
+            "gauche":[302,201],
+            "haut":[],
+            "bas":[]      
+        }
+
+    },
+    {
+        "nom":"D2",
+        "voisins":{
+            "droite":[304],
+            "gauche":[303],
+            "haut":[],
+            "bas":[]
+        }
+
+    },
+    {
+        "nom":"D3",
+        "voisins":{
+            "droite":[306,307],
+            "gauche":[305],
+            "haut":[],
+            "bas":[]
+        }
+    }
+ 
+ 
+]

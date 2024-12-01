@@ -1,0 +1,283 @@
+*{
+    margin :0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Open Sans,sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background-color: #f3f5f6;
+    color: #243238;
+    display: flex;
+    flex-direction: column;
+}
+.bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    z-index: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+}
+
+.icon{
+    height: 6vh;
+}
+.fleche{
+    position: absolute;
+    width: 50px;
+    filter: hue-rotate(150deg)
+}
+.noeud{
+    position: absolute;
+    width: 30px;
+    filter: hue-rotate(100deg)
+}
+.num-etage{
+    font-size: 2em;
+    padding: 10px;
+}
+.flechelegende{
+    width: 50px;
+    filter: hue-rotate(150deg);
+    transform:rotate(180deg);
+}
+.noeudlegende{
+    width: 30px;
+    filter: hue-rotate(100deg)
+}
+.header{
+    color: #fff;
+    background-color: #222858;
+    position: relative;
+}
+.header .container .reduit{
+    height: 9vh;
+}
+.header .container .reduit .content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header .container .reduit .content p{
+    font-size: 1.5em;
+    margin: 20px 20px;
+}
+.header .container .reduit .content:hover{
+    cursor: pointer;
+}
+.header .container .reduit .content img{
+    margin: 20px 20px;
+}
+.header .container .reduit .content img:hover{
+    cursor: pointer;
+}
+.header .container .agrandit{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.header .container .agrandit img{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px 20px;
+}
+.header .container .agrandit img:hover{
+    cursor: pointer;
+}
+.header .container .agrandit .content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.header .container .agrandit .content div{
+    padding: 10px;
+}
+.header .container .agrandit .content div label{
+    font-size: 4em;
+}
+.header .container .agrandit .content div input{
+    font-size: 4em;
+    width: 120px;
+    margin-left :10px;
+}
+.header .container .agrandit .content div .button{
+    font-size: 4em;
+    width: 300px;
+    background: #f3f5f6;
+    border: 2px solid #d7dee2;
+    color: #222858;
+    transition: .2s;
+}
+.header .container .agrandit .content div .button:hover{
+    background: #222858;
+    border: 2px solid #d7dee2;
+    color: #f3f5f6;
+    cursor: pointer;
+    transition: .3s;
+}
+.header .container .agrandit .content .aide{
+    position: absolute;
+    bottom: 10px;
+    font-size: 2.5em;
+}
+.header .container .agrandit .content .aide a:hover{
+    cursor: pointer;
+}
+.header .container .agrandit .content .aide .helpcontent{
+    font-size: 1em;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #060c2ded;
+}
+.header .container .agrandit .content .aide .helpcontent img{
+    width: 40px;
+}
+.header .container .agrandit .content .aide .helpcontent p{
+    width: 100%;
+}
+.main{
+    position: relative;
+    height: 91vh;
+}
+.main .container{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.main .container .map-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    width: 800px;
+}
+.main .container .map-container .map{
+    width: 100%;
+}
+.main .container .map-container .flechecontainer{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.main .container .map-container .flechecontainer .content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.main .container .nav-help{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    border: 2px solid #d7dee2;
+}
+.main .container .nav-help h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 2.5em;
+    font-weight: normal;
+    padding: 5px;
+    background-color: #43497d;
+    color: #fff;
+}
+.main .container .nav-help .nav-legende-content{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: #fff;
+}
+.main .container .nav-help .nav-legende-content p{
+    font-size: 1.2em;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main .container .nav-help .nav-help-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    background-color: #fff;
+}
+.main .container .nav-help .nav-help-content p{
+    font-size: 1.8em;
+    padding-left: 10px;
+}
+.main .container .next-etage{
+    width: 90%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.main .container .next-etage .prev-etage-button{
+    width: 40%;
+    height: 120px;
+    font-size: 2em;
+    background: #43497d;
+    border: 2px solid #d7dee2;
+    color: #f3f5f6;
+    transition: .2s;
+}
+
+.main .container .next-etage .prev-etage-button:hover{
+    background: #f3f5f6;
+    border: 2px solid #43497d;
+    color: #43497d;
+    cursor: pointer;
+    transition: .3s;
+}
+.main .container .next-etage .next-etage-button{
+    width: 40%;
+    height: 120px;
+    font-size: 2em;
+    background: #43497d;
+    border: 2px solid #d7dee2;
+    color: #f3f5f6;
+    transition: .2s;
+}
+
+.main .container .next-etage .next-etage-button:hover{
+    background: #f3f5f6;
+    border: 2px solid #43497d;
+    color: #43497d;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.main .container .footer{
+    color: #fff;
+    background-color: #222858;
+    position: relative;
+    padding: 10px 50px;
+    width: 100%;
+}
+.main .container .footer .footer-container{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+}
+.main .container .footer .footer-container p a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 2em;
+}

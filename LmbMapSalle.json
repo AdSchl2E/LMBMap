@@ -1,0 +1,452 @@
+[
+  {
+    "nom": "salle 1",
+    "etage": 0,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 2",
+    "etage": 0,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 3",
+    "etage": 0,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 4",
+    "etage": 0,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 8",
+    "etage": 0,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 10",
+    "etage": 0,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 11",
+    "etage": 0,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 12",
+    "etage": 0,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 13",
+    "etage": 0,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 14",
+    "etage": 0,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 15",
+    "etage": 0,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 16",
+    "etage": 0,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 17",
+    "etage": 0,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 50",
+    "etage": 0,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 51",
+    "etage": 0,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 101",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 102",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 103",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 104",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 105",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 106",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 107",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 108",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 109",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 110",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 111",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 112",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 113",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 114",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 115",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 116",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 117",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 118",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 119",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 120",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 121",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 122",
+    "etage": 1,
+    "aile": "c"
+  },
+  {
+    "nom": "salle 123",
+    "etage": 1,
+    "aile": "c"
+  },
+  {
+    "nom": "salle 124",
+    "etage": 1,
+    "aile": "c"
+  },
+  {
+    "nom": "salle 151",
+    "etage": 1,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 152",
+    "etage": 1,
+    "aile": "c"
+  },
+  {
+    "nom": "salle 153",
+    "etage": 1,
+    "aile": "c"
+  },
+  {
+    "nom": "salle 125",
+    "etage": 1,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 126",
+    "etage": 1,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 127",
+    "etage": 1,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 128",
+    "etage": 1,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 129",
+    "etage": 1,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 130",
+    "etage": 1,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 131",
+    "etage": 1,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 132",
+    "etage": 1,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 133",
+    "etage": 1,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 134",
+    "etage": 1,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 135",
+    "etage": 1,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 201",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 202",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 203",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 204",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 205",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 206",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 207",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 208",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 209",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 210",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 211",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 212",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 213",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 214",
+    "etage": 2,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 215",
+    "etage": 2,
+    "aile": "c"
+  },
+  {
+    "nom": "salle 216",
+    "etage": 2,
+    "aile": "c"
+  },
+  {
+    "nom": "salle 220",
+    "etage": 2,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 221",
+    "etage": 2,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 222",
+    "etage": 2,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 223",
+    "etage": 2,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 224",
+    "etage": 2,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 225",
+    "etage": 2,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 226",
+    "etage": 2,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 227",
+    "etage": 2,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 228",
+    "etage": 2,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 229",
+    "etage": 2,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 230",
+    "etage": 2,
+    "aile": "g"
+  },
+  {
+    "nom": "salle 301",
+    "etage": 3,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 302",
+    "etage": 3,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 303",
+    "etage": 3,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 304",
+    "etage": 3,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 305",
+    "etage": 3,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 306",
+    "etage": 3,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 307",
+    "etage": 3,
+    "aile": "d"
+  },
+  {
+    "nom": "salle 999",
+    "etage": 1,
+    "aile": "c"
+  },
+  {
+    "nom": "salle 998",
+    "etage": 2,
+    "aile": "c"
+  },
+  {
+    "nom": "salle 997",
+    "etage": 0,
+    "aile": "c"
+  }
+]
